@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Management Dashboard</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- SIDEBAR: Project Navigation -->
+      <aside id="sidebar">
+        <div class="sidebar-header">
+          <h2>My Projects</h2>
+          <button id="open-project-modal" class="btn-primary">
+            + Add Project
+          </button>
+        </div>
+        <nav class="project-list-container">
+          <ul id="project-list">
+            <!-- Dynamic project items injected by ui.js -->
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- MAIN CONTENT AREA: Task Management -->
+      <main id="main-content">
+        <header class="main-header">
+          <h1 id="current-project-title">Select a Project</h1>
+          <button id="open-task-modal" class="btn-success" disabled>
+            + Add Task
+          </button>
+        </header>
+
+        <!-- Task List Layout -->
+        <section class="task-section">
+          <ul id="task-list">
+            <!-- Dynamic task items injected by ui.js -->
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <!-- MODAL: Add New Project -->
+    <dialog id="project-modal">
+      <form method="dialog" id="project-form">
+        <h3>Create New Project</h3>
+        <div class="form-group">
+          <label for="project-name-input">Project Name:</label>
+          <input
+            type="text"
+            id="project-name-input"
+            required
+            placeholder="e.g., Personal Finances"
+          />
+        </div>
+        <div class="form-actions">
+          <button type="button" id="close-project-modal" class="btn-secondary">
+            Cancel
+          </button>
+          <button type="submit" class="btn-primary">Create Project</button>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- MODAL: Add New Task -->
+    <dialog id="task-modal">
+      <form method="dialog" id="task-form">
+        <h3>Add New Task</h3>
+        <div class="form-group">
+          <label for="task-title-input">Task Title:</label>
+          <input
+            type="text"
+            id="task-title-input"
+            required
+            placeholder="e.g., Pay bills"
+          />
+        </div>
+        <div class="form-group">
+          <label for="task-desc-input">Description:</label>
+          <textarea
+            id="task-desc-input"
+            rows="3"
+            placeholder="Enter task details..."
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="task-date-input">Due Date:</label>
+          <input type="date" id="task-date-input" required />
+        </div>
+        <div class="form-group">
+          <label for="task-priority-input">Priority:</label>
+          <select id="task-priority-input">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="task-status-input">Status:</label>
+          <select id="task-status-input">
+            <option value="todo" selected>To Do</option>
+            <option value="in-progress">In Progress</option>
+            <option value="done">Done</option>
+          </select>
+        </div>
+        <div class="form-actions">
+          <button type="button" id="close-task-modal" class="btn-secondary">
+            Cancel
+          </button>
+          <button type="submit" class="btn-success">Add Task</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>

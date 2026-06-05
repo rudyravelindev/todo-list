@@ -24,6 +24,11 @@ const projectManager = (function () {
     }
   };
   loadFromStorage();
+  console.log('after load:', projects);
+  if (projects.length === 0) {
+    projects.push(createProject('Default'));
+  }
+  console.log('after default:', projects);
   if (projects.length === 0) {
     projects.push(createProject('Default'));
   }
